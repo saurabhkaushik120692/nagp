@@ -1,0 +1,31 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: customer-app
+  template:
+    metadata:
+      labels:
+        app: customer-app
+    spec:
+      containers:
+        - name: customer-app
+          image: saurabhkaushik1206/customer-app-image:8
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 80
+          env:
+            - name: DbContextSettings__ConnectionString
+              valueFrom:
+                configMapKeyRef:
+                  name: customer-app-configmap
+                  key: DB_CONNECTIONSTRING
+            - name: Secrets__DBConnectionStringPassword
+              valueFrom:
+                secretKeyRef:
+                  name: customer-app-secret
+                  key: DB_PASSWORD

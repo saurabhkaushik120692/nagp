@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: customer-app-configmap
+  labels:
+    app: customer-app
+data:
+  DB_CONNECTIONSTRING: Server=postgres-headless-service.default.svc.cluster.local:5432;Database=customerdb;User Id=postgres; Pooling=true;
