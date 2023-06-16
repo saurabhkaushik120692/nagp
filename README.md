@@ -12,6 +12,8 @@ Docker hub image url: https://hub.docker.com/r/saurabhkaushik1206/customer-app-i
 
 Docker image("customer-app-image") and tag("8")
 
+Docker file inside the folder CustomerApp (CustomerApp/Dockerfile)
+
 Application URL: http://34.69.195.47:49971/swagger/index.html
 
 Kubernetes:
